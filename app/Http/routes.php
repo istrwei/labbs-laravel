@@ -11,9 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TopicController@showLatestTopics');
+Route::get('/topics/create', 'TopicController@showCreateTopic');
+
+Route::get('/topics/{topic}/view', 'TopicController@view');
+
+Route::post('/topics', [
+    'middleware' => 'auth',
+    'uses' => 'TopicController@create'
+]);
+
+Route::post('/topics/{topic}/replies', [
+    'middleware' => 'auth',
+    'uses' => 'TopicController@createReply'
+]);
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');

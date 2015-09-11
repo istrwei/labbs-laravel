@@ -1,0 +1,25 @@
+@extends('layouts.master')
+
+@section('content')
+<div class="row">
+  <div class="col-md-12 topic-list">
+    @foreach ($topics as $topic)
+      <div class="topic-item">
+        <div class="topic-avatar">
+          <a href="#">
+            <img src="{{ Gravatar::src($topic->author->email, 64) }}" alt="{{ $topic->author_id }}">
+          </a>
+        </div>
+        <div class="topic-header">
+          <header>
+            <a href="/topics/{{ $topic->id }}/view">{{ $topic->title }}</a>
+          </header>
+          <div>
+            {{ $topic->author->name }} {{ $topic->updated_at }}
+          </div>
+        </div>
+      </div>
+    @endforeach
+  </div>
+</div>
+@endsection

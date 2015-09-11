@@ -3,3 +3,28 @@
 body {
   padding-top: 70px;
 }
+
+.topic-list {
+  .topic-item {
+    @extend .media;
+
+    .topic-avatar {
+      @extend .media-left;
+
+      a img {
+        @extend .media-object;
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    .topic-header {
+      header {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      @extend .media-body;
+    }
+  }
+}

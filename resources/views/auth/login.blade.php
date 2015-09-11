@@ -3,19 +3,17 @@
 @section('title', 'Login')
 
 @section('content')
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
     <form class="form-horizontal" method="post" action="/auth/login">
       {!! csrf_field() !!}
       <div class="form-group">
         <label for="email" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-10">
+        <div class="col-sm-10 col-md-6">
           <input type="text" class="form-control" id="name" name="email" value="{{ old('email') }}">
         </div>
       </div>
       <div class="form-group">
         <label for="password" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-10">
+        <div class="col-sm-10 col-md-6">
           <input type="password" class="form-control" id="password" name="password">
         </div>
       </div>
@@ -25,6 +23,4 @@
         </div>
       </div>
     </form>
-  </div>
-</div>
 @endsection

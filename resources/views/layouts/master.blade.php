@@ -18,7 +18,6 @@
           </button>
           <a class="navbar-brand" href="/">Labbs</a>
         </div>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/topics">Topics <span class="sr-only">(current)</span></a></li>
@@ -26,8 +25,13 @@
             <li><a href="/users">Users</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/auth/login">Login</a></li>
-            <li><a href="/auth/register">Register</a></li>
+            @if (Auth::user())
+              <li><a href="/account/settings">{{ Auth::user()->name }}</a></li>
+              <li><a href="/topics/create">Create Topic</a></li>
+            @else
+              <li><a href="/auth/login">Login</a></li>
+              <li><a href="/auth/register">Register</a></li>
+            @endif
           </ul>
         </div>
       </div>
@@ -40,8 +44,10 @@
           </div>
           <div class="col-md-3">
             @section('sidebar')
-            <div>
-              Labbs
+            <div class="panel panel-default">
+              <div class="panel-body">
+                Labbs
+              </div>
             </div>
             @show
           </div>
