@@ -8,12 +8,6 @@ use App\User;
 
 class AuthTest extends TestCase
 {
-    public function setUp()
-    {
-        parent::setUp();
-        Session::start();
-    }
-
     public function testAuthRegister()
     {
         $password = str_random(10);

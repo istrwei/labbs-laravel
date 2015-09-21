@@ -5,12 +5,6 @@ use App\Topic;
 
 class TopicTest extends TestCase
 {
-    public function setUp()
-    {
-        parent::setUp();
-        Session::start();
-    }
-
     public function testCreateTopic()
     {
         $this->actingAs(factory(User::class)->create());
@@ -19,7 +13,8 @@ class TopicTest extends TestCase
              ->type('Topic Title', 'title')
              ->type('Topic Body', 'body')
              ->press('Create')
-             ->seePageIs('/');
+             ->see('Topic Title')
+             ->see('Topic Body');
     }
 
     public function testViewTopic()

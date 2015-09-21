@@ -17,29 +17,21 @@ class TopicController extends Controller
 
     public function create(Request $request)
     {
-        $topic = new Topic($request->only('title', 'body'));
-        $topic->author_id = $request->user()->id;
-        $topic->save();
-
-        return redirect('/');
+        $topic = Topic::createTopic($request->user(), $request->only('title', 'body'));
+        return redirect("/topics/{$topic->id}/view");
     }
 
-    public function view($topic_id)
+    public function view($topicId)
     {
         return view('topic.view', [
-            'topic' => Topic::findOrFail($topic_id)
+            'topic' => Topic::findOrFail($topicId)
         ]);
     }
 
-    public function createReply(Request $request, $topic_id)
+    public function createReply(Request $request, $topicId)
     {
-        Topic::findOrFail($topic_id);
-
-        $reply = new Reply($request->only('body'));
-        $reply->author_id = $request->user()->id;
-        $reply->topic_id = $topic_id;
-        $reply->save();
-
-        return redirect("/topics/{$topic_id}/view");
+        $topic = Topic::findOrFail($topicId);
+        $topic->createReply($request->user(), $request->only('body'));
+        return $this->view($topicId);
     }
 }
