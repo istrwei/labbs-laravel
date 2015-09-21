@@ -26,7 +26,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             @if (Auth::user())
-              <li><a href="/account/settings">{{ Auth::user()->name }}</a></li>
+              <li><a href="/settings">{{ Auth::user()->name }}</a></li>
               <li><a href="/topics/create">Create Topic</a></li>
             @else
               <li><a href="/auth/login">Login</a></li>

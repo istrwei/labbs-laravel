@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'TopicController@showLatestTopics');
+Route::get('/topics', 'TopicController@showLatestTopics');
+
 Route::get('/topics/create', 'TopicController@showCreateTopic');
 
 Route::get('/topics/{topic}/view', 'TopicController@view');
@@ -25,6 +27,8 @@ Route::post('/topics/{topic}/replies', [
     'middleware' => 'auth',
     'uses' => 'TopicController@createReply'
 ]);
+
+Route::get('/users', 'UsersController@showUsers');
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');

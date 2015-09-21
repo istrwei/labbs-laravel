@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Topic;
 use App\Reply;
@@ -40,7 +41,7 @@ class TopicController extends Controller
         ]);
     }
 
-    public function createReply($topic_id, Request $request)
+    public function createReply(Request $request, $topic_id)
     {
         Topic::findOrFail($topic_id);
 
