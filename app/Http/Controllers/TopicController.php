@@ -10,19 +10,9 @@ use App\Reply;
 
 class TopicController extends Controller
 {
-    /**
-     * @return Response
-     */
-    public function showLatestTopics()
-    {
-        return view('topics.latest', [
-            'topics' => Topic::getLatestTopics()
-        ]);
-    }
-
     public function showCreateTopic()
     {
-        return view('topics.create');
+        return view('topic.create');
     }
 
     public function create(Request $request)

@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'TopicController@showLatestTopics');
-Route::get('/topics', 'TopicController@showLatestTopics');
+Route::get('/', 'TopicsController@showLatestTopics');
+Route::get('/topics', 'TopicsController@showLatestTopics');
 
 Route::get('/topics/create', 'TopicController@showCreateTopic');
 
