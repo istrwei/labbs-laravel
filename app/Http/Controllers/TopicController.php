@@ -35,6 +35,7 @@ class TopicController extends Controller
     {
         $topic = Topic::findOrFail($topicId);
         $topic->createReply($request->user(), $request->only('body'));
+        $topic->touch();
         return redirect("/topics/{$topicId}/view");
     }
 }

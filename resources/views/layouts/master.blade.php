@@ -20,7 +20,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/topics">Topics <span class="sr-only">(current)</span></a></li>
+            <li><a href="/topics">Topics</a></li>
             <li><a href="/tags">Tags</a></li>
             <li><a href="/users">Users</a></li>
           </ul>
@@ -46,7 +46,10 @@
             @section('sidebar')
             <div class="panel panel-default">
               <div class="panel-body">
-                Labbs
+                <ul>
+                  <li>{{ $globalStatistics['topicsCount'] }} Topics</li>
+                  <li>{{ $globalStatistics['usersCount'] }} Users</li>
+                </ul>
               </div>
             </div>
             @show

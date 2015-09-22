@@ -13,6 +13,11 @@ class Topic extends Model
         return self::orderBy('updated_at', 'desc')->paginate();
     }
 
+    public static function topicsCount()
+    {
+        return self::count();
+    }
+
     public static function createTopic($user, $topicFields)
     {
         $topic = new self($topicFields);

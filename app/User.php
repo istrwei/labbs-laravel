@@ -33,8 +33,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token'];
 
+    public static function usersCount()
+    {
+        return self::count();
+    }
+
     public static function getRecentlyUsers()
     {
-        return self::get();
+        return self::orderBy('updated_at', 'desc')->paginate(48);
     }
 }

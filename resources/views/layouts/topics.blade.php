@@ -11,6 +11,9 @@
             </a>
           </div>
           <div class="topic-header">
+            <div class="pull-right">
+              {{ $topic->replies()->count() }}
+            </div>
             <header>
               <a href="/topics/{{ $topic->id }}/view">{{ $topic->title }}</a>
             </header>

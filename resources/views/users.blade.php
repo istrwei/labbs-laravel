@@ -11,5 +11,11 @@
         </a>
       </div>
     @endforeach
+
+    <div class="col-md-12 text-center">
+      <div class="center-block">
+        {!! $users->render() !!}
+      </div>
+    </div>
   </div>
 @endsection
