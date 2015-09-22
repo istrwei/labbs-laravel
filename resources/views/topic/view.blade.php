@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  @foreach ($topic->replies as $reply)
+  @foreach ($replies as $reply)
     <div class="panel panel-default">
       <div class="panel-body">
         <p>{{ $reply->body }}</p>
@@ -25,6 +25,12 @@
       </div>
     </div>
   @endforeach
+
+  <div class="text-center">
+    <div class="center-block">
+      {!! $replies->render() !!}
+    </div>
+  </div>
 
   <form class="form-horizontal" method="post" action="/topics/{{ $topic->id }}/replies">
     {!! csrf_field() !!}

@@ -10,7 +10,7 @@ class Topic extends Model
 
     public static function getLatestTopics()
     {
-        return self::orderBy('updated_at', 'desc')->get();
+        return self::orderBy('updated_at', 'desc')->paginate();
     }
 
     public static function createTopic($user, $topicFields)

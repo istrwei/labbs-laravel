@@ -23,8 +23,11 @@ class TopicController extends Controller
 
     public function view($topicId)
     {
+        $topic = Topic::findOrFail($topicId);
+
         return view('topic.view', [
-            'topic' => Topic::findOrFail($topicId)
+            'topic' => $topic,
+            'replies' => $topic->replies()->paginate()
         ]);
     }
 
@@ -32,6 +35,6 @@ class TopicController extends Controller
     {
         $topic = Topic::findOrFail($topicId);
         $topic->createReply($request->user(), $request->only('body'));
-        return $this->view($topicId);
+        return redirect("/topics/{$topicId}/view");
     }
 }
