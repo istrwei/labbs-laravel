@@ -18,7 +18,7 @@ class TopicController extends Controller
     public function create(Request $request)
     {
         $topic = Topic::createTopic($request->user(), $request->only('title', 'body'));
-        return redirect("/topics/{$topic->id}/view");
+        return redirect("/topics/{$topic->id}");
     }
 
     public function view($topicId)
@@ -36,6 +36,6 @@ class TopicController extends Controller
         $topic = Topic::findOrFail($topicId);
         $topic->createReply($request->user(), $request->only('body'));
         $topic->touch();
-        return redirect("/topics/{$topicId}/view");
+        return redirect("/topics/{$topicId}");
     }
 }

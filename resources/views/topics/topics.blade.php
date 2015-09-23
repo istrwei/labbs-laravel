@@ -15,7 +15,7 @@
               {{ $topic->replies()->count() }}
             </div>
             <header>
-              <a href="/topics/{{ $topic->id }}/view">{{ $topic->title }}</a>
+              <a href="/topics/{{ $topic->id }}">{{ $topic->title }}</a>
             </header>
             <div>
               {{ $topic->author->name }} {{ $topic->updated_at }}

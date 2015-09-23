@@ -29,3 +29,10 @@ $factory->define(App\Topic::class, function (Faker\Generator $faker) use($factor
         'body' => $faker->paragraph(5)
     ];
 });
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'description' => $faker->sentence(5)
+    ];
+});

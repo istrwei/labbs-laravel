@@ -21,7 +21,7 @@ class TopicTest extends TestCase
     {
         $topic = factory(Topic::class)->create();
 
-        $this->visit("/topics/{$topic->id}/view")
+        $this->visit("/topics/{$topic->id}")
              ->see($topic->title)
              ->see($topic->body);
     }

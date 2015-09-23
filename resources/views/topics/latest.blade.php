@@ -1,3 +1,3 @@
-@extends('layouts.topics')
+@extends('topics.topics')
 
 @section('title', 'Latest Topics')

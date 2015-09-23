@@ -10,7 +10,7 @@ class ReplyTest extends TestCase
         $this->actingAs(factory(User::class)->create());
         $topic = factory(Topic::class)->create();
 
-        $this->visit("/topics/{$topic->id}/view")
+        $this->visit("/topics/{$topic->id}")
              ->type('Reply Body', 'body')
              ->press('Reply')
              ->see('Reply Body');

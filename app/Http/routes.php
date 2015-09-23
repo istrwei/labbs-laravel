@@ -13,14 +13,22 @@
 
 Route::get('/', 'TopicsController@showLatestTopics');
 Route::get('/topics', 'TopicsController@showLatestTopics');
+Route::get('/tags', 'TagController@showAllTags');
 
 Route::get('/topics/create', 'TopicController@showCreateTopic');
+Route::get('/tags/create', 'TagController@showCreateTag');
 
-Route::get('/topics/{topic}/view', 'TopicController@view');
+Route::get('/topics/{topic}', 'TopicController@view');
+Route::get('/tags/{tag}', 'TagController@showTag');
 
 Route::post('/topics', [
     'middleware' => 'auth',
     'uses' => 'TopicController@create'
+]);
+
+Route::post('/tags', [
+    'middleware' => 'auth',
+    'uses' => 'TagController@create'
 ]);
 
 Route::post('/topics/{topic}/replies', [
