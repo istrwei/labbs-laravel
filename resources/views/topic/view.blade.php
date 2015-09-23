@@ -12,6 +12,9 @@
     </div>
     <div class="panel-footer">
       {{ $topic->author->name }} {{ $topic->updated_at }}
+      @foreach ($topic->tags as $tag)
+        <span class="label label-default">{{ $tag->name }}</span>
+      @endforeach
     </div>
   </div>
 
@@ -45,4 +48,14 @@
       </div>
     </div>
   </form>
+@endsection
+
+@section('sidebar')
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <a href="/topics/{{ $topic->id }}/tags/add" class="btn btn-success btn-lg">Add Tag</a>
+    </div>
+  </div>
+
+  @parent
 @endsection

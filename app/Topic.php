@@ -35,6 +35,11 @@ class Topic extends Model
         return $reply;
     }
 
+    public function addTag($tag)
+    {
+        $this->tags()->attach($tag->id);
+    }
+
     public function author() {
         return $this->belongsTo(User::class);
     }
@@ -42,5 +47,10 @@ class Topic extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class)->orderBy('created_at');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'topic_tags');
     }
 }

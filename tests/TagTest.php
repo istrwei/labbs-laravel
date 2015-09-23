@@ -5,6 +5,12 @@ use App\Tag;
 
 class TagTest extends TestCase
 {
+    public function testViewTags()
+    {
+        $this->visit('/tags')
+             ->assertResponseOk();
+    }
+
     public function testCreateTopic()
     {
         $this->actingAs(factory(User::class)->create());
